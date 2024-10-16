@@ -1,6 +1,6 @@
-# Webpack Website Template
+# Weather app
 
-Template for Webpack with a basic css reset. Also includes ESLint and Babel.
+A live weather forecast site to demonstrate API and asynchronous code use. 
 
 ## Installation
 
@@ -10,18 +10,16 @@ Ensure you have Node.js with npm installed.
 
 ### Steps to use
 
-1. Install GitHub CLI: winget install --id GitHub.cli
-   
-2. Create a new project using the template with: gh repo create my-new-project --template https://github.com/bw-01/webpack-template.git --public --clone
-   1. Change --public to --private if you want to create a private repo
+1. Clone the repository: git clone https://github.com/bw-01/weather-app.git
 
-3. Navigate to the project folder:
-   cd my-new-project
+2. Navigate to the project folder: cd weather-app
 
-4. Install dependencies by running setup-project.ps1 or executing the lines in that file if not using Windows.
-   
-5. Run a web server to view a project as you update it on http://localhost:8080/ with:
-   npm run dev
+3. Install dependencies by running setup-project.ps1 or executing the lines in that file if not using Windows.
 
-6. Generate the distributables for a project with:
-   npm run build
+4. Start the development server with: npm run dev
+
+5. Open the web server at http://localhost:8080/ in your browser.
+
+## References
+
+- Weather data retreived from https://visualcrossing.com
