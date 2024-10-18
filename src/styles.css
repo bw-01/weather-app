@@ -24,6 +24,15 @@ a {
   color: inherit;
 }
 
+.weather-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1ca6dd;
+  border-radius: 10px;
+  color: white;
+}
+
 .location-form {
   display: flex;
   flex-direction: column;
@@ -118,15 +127,6 @@ a {
 
 .fc-toggle:checked + .fc-toggle-label {
   background-color: #a19692;
-}
-
-.weather-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #87ceeb;
-  border-radius: 10px;
-  color: white;
 }
 
 .todays-weather {
