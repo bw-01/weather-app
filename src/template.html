@@ -8,21 +8,34 @@
   <body>
     <div class="weather-container">
       <form class="location-form">
-        <label for="location-input">Location:</label>
-        <input
-          type="text"
-          id="location-input"
-          name="location"
-          placeholder="e.g: Wellington"
-          minlength="2"
-          required />
-        <button type="submit">Display Weather</button>
+        <div class="location-form-inputs">
+          <label for="location-input">Location:</label>
+          <input
+            type="text"
+            id="location-input"
+            name="location"
+            placeholder="e.g: New York"
+            minlength="2"
+            required />
+        </div>
+        <div class="location-form-controls">
+          <button type="submit">Display Weather</button>
+          <div class="fc-toggle-container">
+            <input type="checkbox" id="fc-toggle" class="fc-toggle" />
+            <label for="fc-toggle" class="fc-toggle-label">
+              <span class="fahrenheit">°F</span>
+              <span class="celsius">°C</span>
+            </label>
+          </div>
+        </div>
       </form>
 
       <div class="todays-weather">
         <div class="todays-temperature">
-          <h1 id="current-temp">14°</h1>
-          <h2 id="current-location">Wellington</h2>
+          <div class="todays-top-side">
+            <h1 id="current-temp">14°</h1>
+          </div>
+          <h2 id="current-location">London, England, U.K.</h2>
         </div>
         <div class="todays-right-side">
           <div id="current-icon">
@@ -53,7 +66,12 @@
           <p class="day-temp">14°</p>
           <div class="day-rain">
             <div>
-              <svg class="raindrop-icon" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <svg
+                class="raindrop-icon"
+                width="20"
+                height="20"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24">
                 <title>water</title>
                 <path
                   d="M12,20A6,6 0 0,1 6,14C6,10 12,3.25 12,3.25C12,3.25 18,10 18,14A6,6 0 0,1 12,20Z" />
@@ -74,7 +92,12 @@
           </div>
           <p class="day-temp">16°</p>
           <div class="day-rain">
-            <svg class="raindrop-icon" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <svg
+              class="raindrop-icon"
+              width="20"
+              height="20"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24">
               <title>water</title>
               <path
                 d="M12,20A6,6 0 0,1 6,14C6,10 12,3.25 12,3.25C12,3.25 18,10 18,14A6,6 0 0,1 12,20Z" />
@@ -94,7 +117,12 @@
           </div>
           <p class="day-temp">16°</p>
           <div class="day-rain">
-            <svg class="raindrop-icon" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <svg
+              class="raindrop-icon"
+              width="20"
+              height="20"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24">
               <title>water</title>
               <path
                 d="M12,20A6,6 0 0,1 6,14C6,10 12,3.25 12,3.25C12,3.25 18,10 18,14A6,6 0 0,1 12,20Z" />
@@ -114,7 +142,12 @@
           </div>
           <p class="day-temp">16°</p>
           <div class="day-rain">
-            <svg class="raindrop-icon" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <svg
+              class="raindrop-icon"
+              width="20"
+              height="20"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24">
               <title>water</title>
               <path
                 d="M12,20A6,6 0 0,1 6,14C6,10 12,3.25 12,3.25C12,3.25 18,10 18,14A6,6 0 0,1 12,20Z" />
@@ -134,7 +167,12 @@
           </div>
           <p class="day-temp">16°</p>
           <div class="day-rain">
-            <svg class="raindrop-icon" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <svg
+              class="raindrop-icon"
+              width="20"
+              height="20"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24">
               <title>water</title>
               <path
                 d="M12,20A6,6 0 0,1 6,14C6,10 12,3.25 12,3.25C12,3.25 18,10 18,14A6,6 0 0,1 12,20Z" />
@@ -154,7 +192,12 @@
           </div>
           <p class="day-temp">16°</p>
           <div class="day-rain">
-            <svg class="raindrop-icon" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <svg
+              class="raindrop-icon"
+              width="20"
+              height="20"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24">
               <title>water</title>
               <path
                 d="M12,20A6,6 0 0,1 6,14C6,10 12,3.25 12,3.25C12,3.25 18,10 18,14A6,6 0 0,1 12,20Z" />
@@ -162,7 +205,7 @@
             <p class="rain-chance">0%</p>
           </div>
         </div>
-        
+
         <div class="day" id="day-7">
           <p class="day-name">Mon</p>
           <div class="day-icon">
@@ -174,21 +217,25 @@
           </div>
           <p class="day-temp">16°</p>
           <div class="day-rain">
-            <svg class="raindrop-icon" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <svg
+              class="raindrop-icon"
+              width="20"
+              height="20"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24">
               <title>water</title>
               <path
                 d="M12,20A6,6 0 0,1 6,14C6,10 12,3.25 12,3.25C12,3.25 18,10 18,14A6,6 0 0,1 12,20Z" />
             </svg>
             <p class="rain-chance">0%</p>
           </div>
-        </div>        
+        </div>
       </div>
 
       <div class="summary">
         <h3>Today's Outlook</h3>
         <p id="summary-text">A little warmer than yesterday</p>
       </div>
-
     </div>
   </body>
 </html>

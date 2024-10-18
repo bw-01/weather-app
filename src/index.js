@@ -2,6 +2,7 @@ import "./styles.css";
 
 const defaultLocation = "London";
 const weatherAll = [];
+let useCelsius = true;
 
 // Stores daily weather data
 class Weather {
@@ -67,13 +68,21 @@ async function processData(location) {
 
 // Update the UI with weather data
 function updateWeather(data) {
-  document.getElementById("current-temp").textContent = `${data.currentTemp}°`;
+  const currentTemp = useCelsius ? convertToCelsius(data.currentTemp) : Math.round(data.currentTemp);
+  const unitSymbol = useCelsius ? "C" : "F"; 
+  document.getElementById(
+    "current-temp"
+  ).innerHTML = `${currentTemp}<span class="temp-unit">°${unitSymbol}</span>`;
 
+  
   document.getElementById("current-location").textContent = Weather.getLocation();
 
-  document.getElementById("current-high-low").textContent = `${data.maxTemp}° / ${data.minTemp}°`;
+  const minTemp = useCelsius ? convertToCelsius(data.minTemp) : Math.round(data.minTemp);
+  const maxTemp = useCelsius ? convertToCelsius(data.maxTemp) : Math.round(data.maxTemp);
+  document.getElementById("current-high-low").textContent = `${maxTemp}° / ${minTemp}°`;
 
-  document.getElementById("feels-like").textContent = `Feels like ${data.feelsTemp}°`;
+  const feelsTemp = useCelsius ? convertToCelsius(data.feelsTemp) : Math.round(data.feelsTemp);
+  document.getElementById("feels-like").textContent = `Feels like ${feelsTemp}°`;
 
   const now = new Date();
   const dayOfWeek = now.toLocaleString("en-US", { weekday: "short" });
@@ -106,11 +115,12 @@ function updateDaily(weatherData) {
       const dayName = date.toLocaleString("en-US", { weekday: "short" });
       dayNameElement.textContent = dayName;
 
+      const dayTemp = useCelsius ? convertToCelsius(dayData.currentTemp) : Math.round(dayData.currentTemp);
       const dayTempElement = dayDiv.querySelector(".day-temp");
-      dayTempElement.textContent = `${dayData.currentTemp}°`;
+      dayTempElement.textContent = `${dayTemp}°`;
 
       const rainChanceElement = dayDiv.querySelector(".rain-chance");
-      rainChanceElement.textContent = `${dayData.precipitation}%`;
+      rainChanceElement.textContent = `${Math.round(dayData.precipitation)}%`;
 
       const iconElement = dayDiv.querySelector(".day-icon");
       iconElement.innerHTML = getWeatherIcon(dayData.conditions);
@@ -153,6 +163,11 @@ function getWeatherIcon(condition) {
   }
 }
 
+// Convert temps from fahrenheit to celsius
+function convertToCelsius(temp) {
+  return Math.round((temp - 32) * (5 / 9));
+}
+
 // Main
 processData(defaultLocation);
 
@@ -162,4 +177,11 @@ locationForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const location = document.getElementById("location-input").value;
   processData(location);
+});
+
+const fcToggle = document.getElementById("fc-toggle");
+
+fcToggle.addEventListener("change", function () {
+  useCelsius = !useCelsius; 
+  updateWeather(weatherAll[0]);
 });

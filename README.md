@@ -1,6 +1,16 @@
 # Weather app
 
-A live weather forecast site to demonstrate API and asynchronous code use. 
+A live weather forecast site that demonstrates API integration and asynchronous JavaScript code.
+
+Author: Bart W
+
+## Features
+
+- API Integration: fetches real-time weather data from the Visual Crossing API.
+- Asynchronous Operations: utilizes async/await for API requests and dynamic content updates.
+- Location-Based Forecast: input a location to receive a 7-day weather forecast.
+- Temperature Unit Toggle: toggle between Celsius and Fahrenheit for temperature display.
+- SVG Icons for Weather Conditions: dynamically generated weather icons based on current weather conditions.
 
 ## Installation
 
