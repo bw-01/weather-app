@@ -169,16 +169,23 @@ function convertToCelsius(temp) {
 }
 
 // Main
-processData(defaultLocation);
+processData(defaultLocation); // Get data for default location
 
 const locationForm = document.querySelector(".location-form");
+const locationInput = document.getElementById("location-input");
 
 locationForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  const location = document.getElementById("location-input").value;
+  const location = locationInput.value;
   processData(location);
 });
 
+// Capitalise first letters of input
+locationInput.addEventListener("input", function () {
+  locationInput.value = locationInput.value.replace(/\b\w/g, (char) => char.toUpperCase());
+});
+
+// Toggle to/from celsius
 const fcToggle = document.getElementById("fc-toggle");
 
 fcToggle.addEventListener("change", function () {
